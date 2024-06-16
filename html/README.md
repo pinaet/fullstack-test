@@ -16,7 +16,7 @@ This is a Laravel application that allows users to view and search for propertie
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/property-listing-app.git
+   git clone https://github.com/pinaet/fullstack-test.git
    ```
 
 2. Navigate to the project directory:
