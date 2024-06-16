@@ -1,8 +1,7 @@
 # Answers to Technical Questions
 
 ## Time Spent and Additional Features
-
-I spent approximately 3 hours on the coding test since I have reused codes from my existing project. If I had more time, I would consider implementing the following additional features:
+I spent approximately 3 hours on the coding test since I was able to reuse code from my existing project. If I had more time, I would consider implementing the following additional features:
 
 - Advanced search functionality with more filtering options, such as price range, property type, and amenities.
 - User authentication and authorization to allow users to save favorite properties and receive notifications.
