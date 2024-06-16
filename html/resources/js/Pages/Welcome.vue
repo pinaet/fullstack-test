@@ -19,7 +19,7 @@
                     <option value="dateDesc">Date Listed (Newest First)</option>
                 </select>
             </div>
-            <div class="flex items-center mt-4 sm:mt-0">
+            <div class="flex items-center justify-between mt-8">
                 <button @click="previousPage" :disabled="currentPage === 1"
                     class="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed">
                     Previous
@@ -74,6 +74,7 @@ export default {
             currentPage: 1,
             perPage: 25,
             province: '',
+            meta: {}, // Add the meta property to the component's data
         };
     },
 
@@ -113,13 +114,11 @@ export default {
         },
 
         paginatedProperties() {
-            const startIndex = (this.currentPage - 1) * this.perPage;
-            const endIndex = startIndex + this.perPage;
-            return this.sortedProperties.slice(startIndex, endIndex);
+            return this.properties;
         },
 
         totalPages() {
-            return Math.ceil(this.filteredProperties.length / this.perPage);
+            return this.meta.last_page || 1; // Provide a default value of 1 if meta.last_page is undefined
         },
     },
 
@@ -127,12 +126,14 @@ export default {
         previousPage() {
             if (this.currentPage > 1) {
                 this.currentPage--;
+                this.fetchProperties();
             }
         },
 
         nextPage() {
             if (this.currentPage < this.totalPages) {
                 this.currentPage++;
+                this.fetchProperties();
             }
         },
 
@@ -155,6 +156,7 @@ export default {
             axios.get(url, { params })
                 .then(response => {
                     this.properties = response.data.data;
+                    this.meta = response.data.meta;
                     console.log(this.properties);
                 })
                 .catch(error => {
