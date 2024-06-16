@@ -36,4 +36,8 @@ class Property extends Model
     {
         return $this->hasOne(Photo::class);
     }
+
+    public function scopeFilter(Builder $builder, QueryFilter $filters){
+        return $filters->apply($builder);
+    }
 }

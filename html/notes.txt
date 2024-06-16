@@ -6,3 +6,9 @@ sudo chmod -R 775 composer.json
 docker compose up -d
 composer require laravel/breeze --dev
 
+sudo chown naet:naet
+
+API examples:
+-------------
+http://localhost:8080/api/properties?filter[sold]=0&sort=date_listed&filter[title]=*condo*&filter[street]=*2*
+http://localhost:8080/api/properties/Bangkok?filter[sold]=0&sort=date_listed&filter[title]=*condo*&filter[street]=*2*
