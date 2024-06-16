@@ -1,4 +1,3 @@
-```markdown
 # Property Listing Application
 
 This is a Laravel application that allows users to view and search for properties that are for sale and unsold. The application provides features such as pagination, search functionality, and sorting options.
@@ -16,13 +15,13 @@ This is a Laravel application that allows users to view and search for propertie
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/property-listing-app.git
+   git clone https://github.com/pinaet/fullstack-test.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd property-listing-app
+   cd fullstack-test/html
    ```
 
 3. Install the PHP dependencies using Composer:
@@ -137,4 +136,3 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 ## License
 
 This project is open-source and available under the [MIT License](https://opensource.org/licenses/MIT).
-```
