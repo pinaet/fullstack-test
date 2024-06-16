@@ -26,10 +26,6 @@
                     <p class="text-gray-600 mb-4">{{ property.description }}</p>
                     <p class="text-lg font-bold mb-2">{{ property.currency_symbol }}{{ property.price }}</p>
                     <p class="text-gray-500">{{ property.geo.province }}, {{ property.geo.country }}</p>
-                    <router-link :to="'/properties/' + property.id"
-                        class="block mt-4 text-blue-500 hover:text-blue-700">
-                        View Details
-                    </router-link>
                 </div>
             </div>
         </div>
@@ -73,7 +69,7 @@ export default {
             });
 
             const locationMatchedProperties = this.properties.filter(property => {
-                return property.geo.province.toLowerCase().includes(locationQuery);
+                return property.geo.street.toLowerCase().includes(locationQuery);
             });
 
             const combinedProperties = titleMatchedProperties.concat(locationMatchedProperties);
@@ -118,16 +114,16 @@ export default {
         },
         fetchProperties() {
             const url = this.province
-                ? `/api/properties/${this.province}`
-                : '/api/properties';
+                ? `http://localhost:8080/api/properties/${this.province}`
+                : 'http://localhost:8080/api/properties';
 
             const params = {
                 page: this.currentPage,
                 per_page: this.perPage,
                 'filter[title]': `*${this.searchTitle}*`,
                 'filter[street]': `*${this.searchLocation}*`,
-                'filter[for_sale]': true,
-                'filter[sold]': false,
+                'filter[for_sale]': 1,
+                'filter[sold]': 0,
                 sort: this.getSortOption(),
             };
 
