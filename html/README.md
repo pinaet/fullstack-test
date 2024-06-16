@@ -1,4 +1,3 @@
-```markdown
 # Property Listing Application
 
 This is a Laravel application that allows users to view and search for properties that are for sale and unsold. The application provides features such as pagination, search functionality, and sorting options.
