@@ -6,9 +6,8 @@ use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Http\Filters\PropertyFilter;
 use App\Http\Resources\PropertyResource;
-use App\Http\Controllers\Controller;
 
-class PropertyController extends Controller
+class PropertyController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -32,6 +31,5 @@ class PropertyController extends Controller
 
         $perPage = $request->input('per_page', 25); // Default to 25 if not provided
         return PropertyResource::collection($properties->filter($filters)->paginate($perPage));
-
     }
 }
