@@ -59,6 +59,7 @@
 import { Head } from '@inertiajs/vue3';
 import { format } from 'date-fns';
 import axios from 'axios';
+import { API_BASE_URL } from '../../../config'; // Update the import path according to your project structure
 
 export default {
     components: {
@@ -139,8 +140,8 @@ export default {
 
         fetchProperties() {
             const url = this.province
-                ? `http://localhost:8080/api/properties/${encodeURIComponent(this.province)}`
-                : 'http://localhost:8080/api/properties';
+                ? `${API_BASE_URL}/api/properties/${encodeURIComponent(this.province)}`
+                : `${API_BASE_URL}/api/properties`;
 
             const params = {
                 page: this.currentPage,
