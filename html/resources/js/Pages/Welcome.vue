@@ -151,13 +151,15 @@ export default {
                 'filter[sold]': 0,
                 sort: this.getSortOption(),
             };
-            console.log(url, params);
 
             axios.get(url, { params })
                 .then(response => {
                     this.properties = response.data.data;
                     this.meta = response.data.meta;
-                    console.log(this.properties);
+
+                    if (this.properties.length === 0 && this.province) {
+                        this.$inertia.visit('/404', { replace: true });
+                    }
                 })
                 .catch(error => {
                     console.error('Error fetching properties:', error);
