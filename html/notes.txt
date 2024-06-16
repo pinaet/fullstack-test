@@ -1,0 +1,8 @@
+curl -s https://laravel.build/html | bash
+cd html
+sudo chgrp -R naet storage bootstrap/cache
+sudo chmod -R ug+rwx storage bootstrap/cache
+sudo chmod -R 775 composer.json
+docker compose up -d
+composer require laravel/breeze --dev
+
