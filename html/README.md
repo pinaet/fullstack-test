@@ -22,7 +22,7 @@ This is a Laravel application that allows users to view and search for propertie
 2. Navigate to the project directory:
 
    ```bash
-   cd property-listing-app
+   cd fullstack-test/html
    ```
 
 3. Install the PHP dependencies using Composer:
